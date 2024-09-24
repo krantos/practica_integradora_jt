@@ -1,0 +1,46 @@
+version: '3'
+services:
+  webserver:
+    image: nginx:stable-alpine3.20-perl
+    container_name: webserver
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/jobtracker/
+      - ./docker/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - app-network
+    
+  app:
+    build:
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    volumes:
+      - ./:/var/www/jobtracker/
+    networks:
+      - app-network
+
+  datab:
+    image: postgres:12.20-alpine3.20
+    restart: always
+    shm_size: 128mb
+    environment:
+      PGDATA: "/var/linb/postgresql/data/pgdata"
+      POSTGRES_DB: "${DB_DATABASE}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "${DB_USERNAME}"
+    ports: 
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/linb/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes: 
+  pgdata:
