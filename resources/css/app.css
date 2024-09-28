@@ -1,0 +1,16 @@
+@import url(spectre-exp.min.css);
+@import url(spectre-icons.min.css);
+@import url(spectre.min.css);
+
+.w-1 {
+	max-width: 100px;
+}
+.w-2 {
+	max-width: 150px;
+}
+.w-3 {
+	max-width: 350px;
+}
+.w-4 {
+	max-width: 500px;
+}
