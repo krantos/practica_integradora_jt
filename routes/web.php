@@ -21,5 +21,5 @@ Route::get('/clean', function() {
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });

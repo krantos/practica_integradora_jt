@@ -3,14 +3,18 @@
 @import url(spectre.min.css);
 
 .w-1 {
-	max-width: 100px;
+    max-width: 100px;
 }
 .w-2 {
-	max-width: 150px;
+    max-width: 150px;
 }
 .w-3 {
-	max-width: 350px;
+    max-width: 350px;
 }
 .w-4 {
-	max-width: 500px;
+    max-width: 500px;
+}
+
+.h-screen {
+    height: 100vh;
 }

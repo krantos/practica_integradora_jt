@@ -1,4 +1,3 @@
-@extends('layouts.clean')
+@extends('admin.layout')
 @section('content')
-	@include('menu.profile')
 @endsection
