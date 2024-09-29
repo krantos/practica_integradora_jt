@@ -38,6 +38,27 @@ services:
         networks:
             - app-network
 
+    yarn:
+        image: node:22.9.0-alpine
+        volumes:
+            - .:/var/www
+        entrypoint: ["yarn"]
+        working_dir: /var/www
+    
+    artisan:
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+        volumes:
+            - .:/var/www
+        working_dir: /var/www
+        depends_on:
+            - datab
+        entrypoint: ["php", "/var/www/artisan"]
+        networks:
+            - app-network
+
+
 networks:
     app-network:
         driver: bridge
