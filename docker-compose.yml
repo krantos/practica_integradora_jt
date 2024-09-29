@@ -45,6 +45,17 @@ services:
         entrypoint: ["yarn"]
         working_dir: /var/www
     
+    vite: 
+        image: node:22.9.0-alpine
+        volumes:
+            - .:/var/www
+        entrypoint: ["yarn", "dev"]
+        working_dir: /var/www
+        ports:
+            - 5173:5173
+        networks:
+            - app-network
+    
     artisan:
         build:
             context: .
