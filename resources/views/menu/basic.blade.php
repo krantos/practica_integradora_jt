@@ -1,22 +1,22 @@
 <div class="column col12">
   <ul class="nav">
     <li class="nav-item">
-      <a href="#">Elements</a>
+      <a href="#">Dashboard</a>
     </li>
     <li class="nav-item active">
-      <a href="#">Layout</a>
+      <a href="#">Ofertas</a>
       <ul class="nav">
         <li class="nav-item">
-          <a href="#">Flexbox grid</a>
+          <a href="#">Cendario</a>
         </li>
         <li class="nav-item">
-          <a href="#">Responsive</a>
+          <a href="#">Alertas</a>
         </li>
         <li class="nav-item">
-          <a href="#">Navbar</a>
+          <a href="#">Contactos</a>
         </li>
         <li class="nav-item">
-          <a href="#">Empty states</a>
+          <a href="#">New</a>
         </li>
       </ul>
     </li>
