@@ -69,6 +69,21 @@ services:
         networks:
             - app-network
 
+    test:
+      image: php:8.3-rc-fpm-alpine
+      volumes:
+        - .:/app
+      working_dir: /app
+      entrypoint: ["sh", "./docker/test_setup.sh"]
+      # build:
+      #   context: .
+      #   dockerfile: ./docker/Dockerfile.test
+      # depends_on:
+      #   - sqlite
+      # entrypoint: ["php", "/app/artisan"]
+
+    # sqlite:
+    #   image: jitesoft/sqlite
 
 networks:
     app-network:
