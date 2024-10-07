@@ -7,9 +7,9 @@
     <a href="..." class="btn btn-link">Contactos</a>
     <a href="{{ url('offers/create') }}" class="btn btn-primary">New +</a>
   </section>
-	<section class="navbar-section">
-		search...
-	</section>
+  <section class="navbar-section">
+    search...
+  </section>
   <section class="navbar-section p-2">
     @include('menu.profile')
   </section>

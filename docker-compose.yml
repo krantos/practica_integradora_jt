@@ -44,8 +44,8 @@ services:
             - .:/var/www
         entrypoint: ["yarn"]
         working_dir: /var/www
-    
-    vite: 
+
+    vite:
         image: node:22.9.0-alpine
         volumes:
             - .:/var/www
@@ -55,7 +55,7 @@ services:
             - 5173:5173
         networks:
             - app-network
-    
+
     artisan:
         build:
             context: .
@@ -70,11 +70,11 @@ services:
             - app-network
 
     test:
-      image: php:8.3-rc-fpm-alpine
-      volumes:
-        - .:/app
-      working_dir: /app
-      entrypoint: ["sh", "./docker/test_setup.sh"]
+        image: php:8.3-rc-fpm-alpine
+        volumes:
+            - .:/app
+        working_dir: /app
+        entrypoint: ["sh", "./docker/test_setup.sh"]
 
 networks:
     app-network:
