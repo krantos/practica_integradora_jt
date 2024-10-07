@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
 						$table->string('position');
-						$table->text('skills');
-						$table->text('experience');
-						$table->bigInteger('salary');
-						$table->dateTime('applied');
-						$table->string('status');
-						$table->text('url');
-						$table->date('publication_date');
-						$table->string('priority');
+						$table->text('skills')->nullable();
+						$table->text('experience')->nullable();
+						$table->bigInteger('salary')->nullable();
+						$table->dateTime('applied')->nullable();
+						$table->string('status')->nullable();
+						$table->text('url')->nullable();
+						$table->date('publication_date')->nullable();
+						$table->string('priority')->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }

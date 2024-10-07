@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
 						$table->string('name');
-						$table->text('url');
+						$table->text('url')->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }

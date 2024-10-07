@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('offers', function (Blueprint $table) {
-						$table->foreignId('location_id')->constrained();
-            $table->foreignId('currency_id')->constrained();
-						$table->foreignId('company_id')->constrained();
-						$table->foreignId('platform_id')->constrained();
+						$table->foreignId('location_id')->nullable()->constrained();
+            $table->foreignId('currency_id')->nullable()->constrained();
+						$table->foreignId('company_id')->nullable()->constrained();
+						$table->foreignId('platform_id')->nullable()->constrained();
         });
     }
 
@@ -25,10 +25,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('offers', function (Blueprint $table) {
-            $table->dropForeignId('offers_location_id_foreign');
-            $table->dropForeignId('offers_currency_id_foreign');
-            $table->dropForeignId('offers_company_id_foreign');
-            $table->dropForeignId('offers_platform_id_foreign');
+            $table->dropForeign('offers_location_id_foreign');
+            $table->dropForeign('offers_currency_id_foreign');
+            $table->dropForeign('offers_company_id_foreign');
+            $table->dropForeign('offers_platform_id_foreign');
         });
     }
 };

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('technologies', function (Blueprint $table) {
             $table->id();
 						$table->string('name');
-						$table->text('description');
+						$table->text('description')->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }

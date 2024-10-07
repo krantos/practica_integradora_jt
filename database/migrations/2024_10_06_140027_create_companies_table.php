@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
 						$table->string('name');
-						$table->text('url');
-						$table->unsignedBigInteger('location_id');
-						$table->foreign('location_id')->references('id')->on('locations');
+						$table->text('url')->nullable();
+						$table->unsignedBigInteger('location_id')->nullable();
+						$table->foreign('location_id')->references('id')->on('locations')->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }

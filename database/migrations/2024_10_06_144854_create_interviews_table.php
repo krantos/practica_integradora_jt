@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
-						$table->dateTime('date_time');
-						$table->text('call_details');
+						$table->dateTime('date_time')->nullable();
+						$table->text('call_details')->nullable();
 						$table->unsignedBigInteger('offer_id');
 						$table->foreign('offer_id')
 							->references('id')
 							->on('offers')
 							->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }

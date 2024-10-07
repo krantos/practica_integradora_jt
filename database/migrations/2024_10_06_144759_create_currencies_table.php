@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
 						$table->string('name');
-						$table->string('symbol');
+						$table->string('symbol')->nullable();
+						$table->softDeletes('deleted_at', precision: 0);
             $table->timestamps();
         });
     }
