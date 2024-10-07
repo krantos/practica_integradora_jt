@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\OfferController;
 
 Route::get('/login', function() {
 	if(Auth::check()) 
@@ -19,6 +20,8 @@ Route::get('/clean', function() {
 });
 
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
+
+Route::resource('/offers', OfferController::class)->middleware('auth');
 
 Route::get('/', function () {
     return view('landing');
