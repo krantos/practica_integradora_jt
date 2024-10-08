@@ -22,7 +22,8 @@ class OfferController extends Controller
      */
     public function create()
     {
-        return view('offer.create');
+				$offer = new Offer();
+        return view('offer.create', ['offer' => $offer]);
     }
 
     /**
@@ -30,12 +31,18 @@ class OfferController extends Controller
      */
     public function store(OfferPostRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
-				$offer = new Offer();
-				$offer->position = $validated['position'];
-				$offer->saveOrFail();
+			try {
+					$validated = $request->validated();
+					$offer = new Offer();
+					$offer->position = $validated['position'];
+					$offer->saveOrFail();
+				} catch (\Throwable $th) {
+					return back()->withErrors([
+						'error' => $th->getMessage(),
+					]);
+				}
 				
-				return redirect('/offers');
+				return redirect('/offers')->with(['toast' => ['style' => 'success', 'message' => "New $offer->position Offer Created"]]);
     }
 
     /**
@@ -77,9 +84,17 @@ class OfferController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        //
+			try {
+        $offer = $this->findOffer($id);
+				$offer->deleteOrFail();
+			} catch (\Throwable $th) {
+				return back()->withErrors([
+					'error' => $th->getMessage(),
+				]);
+			}
+			return redirect('/offers')->with(['toast' => ['style' => 'success', 'message' => "Offer: $offer->position Successfully Deleted!"]]);
     }
 
 		protected function findOffer(string $id) {
