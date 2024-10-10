@@ -8,11 +8,14 @@
 				{{ session('toast')['message'] }}
     </div>
 @endif
-  <div class="offers">
-    <table>
+  <div class="offers col-11 col-mx-auto">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th>Position</th>
+          <th>Company</th>
+          <th>Salary</th>
+          <th>Date Posted</th>
         </tr>
       </thead>
       <tbody>

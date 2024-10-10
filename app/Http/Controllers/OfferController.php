@@ -33,9 +33,7 @@ class OfferController extends Controller
     {
 			try {
 					$validated = $request->validated();
-					$offer = new Offer();
-					$offer->position = $validated['position'];
-					$offer->saveOrFail();
+					$offer = Offer::create($validated);
 				} catch (\Throwable $th) {
 					return back()->withErrors([
 						'error' => $th->getMessage(),
@@ -70,13 +68,7 @@ class OfferController extends Controller
     {
 			$validated = $request->validated();
 			$offer = $this->findOffer($id);
-			$offer->position = $validated['position'];
-			$offer->publication_date = $validated['publication_date'];
-			$offer->skills = $validated['skills'];
-			$offer->experience = $validated['experience'];
-			$offer->salary = $validated['salary'];
-			$offer->url = $validated['url'];
-			$offer->saveOrFail();
+			$offer->updateOrFail($validated);
 			
 			return redirect("/offers/$offer->id");
     }
@@ -87,8 +79,8 @@ class OfferController extends Controller
     public function destroy(string $id): RedirectResponse
     {
 			try {
-        $offer = $this->findOffer($id);
-				$offer->deleteOrFail();
+        $offer = $this->findOffer($id);				
+				$offer->delete();
 			} catch (\Throwable $th) {
 				return back()->withErrors([
 					'error' => $th->getMessage(),

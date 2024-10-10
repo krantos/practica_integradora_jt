@@ -5,7 +5,7 @@
     </a>
   </td>
   <td>
-    {{ $offer->salary }}
+    {{ $offer->company }}
   </td>
   <td>
     {{ $offer->salary }}
