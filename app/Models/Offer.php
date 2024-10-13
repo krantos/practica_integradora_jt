@@ -28,6 +28,7 @@ class Offer extends Model
 			'experience',
 			'salary',
 			'url',
+			'company_id',
 			'tenant_id'
 		];
 

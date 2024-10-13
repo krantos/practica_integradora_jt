@@ -11,6 +11,11 @@ class Company extends Model
 {
     use HasFactory, BelongsToTenant;
 
+		protected $fillable = [
+			'name',
+			'url'
+		];
+
 		public function offers(): HasMany {
 			return $this->hasMany(Offer::class)->chaperone();
 		}

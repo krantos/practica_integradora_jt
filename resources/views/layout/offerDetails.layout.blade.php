@@ -14,7 +14,9 @@
   @include('admin.header')
   <main>
     <div class="container">
-        @yield('content')
+      <div class="columns">
+        
+      </div>
     </div>
   </main>
   <footer>

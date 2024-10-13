@@ -2,6 +2,7 @@
   <section class="navbar-section m-2">
     <a href="" class="btn btn-link mr-2">Dashboard</a>
     <a href="{{ url('offers') }}" class="btn btn-link">Ofertas</a>
+    <a href="{{ url('companies') }}" class="btn btn-link">Companies</a>
     <a href="..." class="btn btn-link">Calendario</a>
     <a href="..." class="btn btn-link">Alertas</a>
     <a href="..." class="btn btn-link">Contactos</a>

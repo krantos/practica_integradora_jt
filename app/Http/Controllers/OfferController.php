@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferPostRequest;
-use Illuminate\Http\Request;
+use App\Models\Company;
 use App\Models\Offer;
 use Illuminate\Http\RedirectResponse;
 
@@ -23,7 +23,8 @@ class OfferController extends Controller
     public function create()
     {
 				$offer = new Offer();
-        return view('offer.create', ['offer' => $offer]);
+				$companies = Company::all();
+        return view('offer.create', ['offer' => $offer, 'companies' => $companies]);
     }
 
     /**
@@ -48,7 +49,6 @@ class OfferController extends Controller
      */
     public function show(string $id)
     {
-        // $offer = Offer::find($id);
 				return view('offer.show', ['offer' => $this->findOffer($id)]);
     }
 
@@ -58,7 +58,8 @@ class OfferController extends Controller
     public function edit(string $id)
     {
 				$offer = $this->findOffer($id);
-				return view('offer.edit', ['offer' => $offer]);
+				$companies = Company::all();
+				return view('offer.edit', ['offer' => $offer, 'companies' => $companies]);
     }
 
     /**
@@ -69,7 +70,13 @@ class OfferController extends Controller
 			$validated = $request->validated();
 			$offer = $this->findOffer($id);
 			$offer->updateOrFail($validated);
-			
+			if(!blank($validated['new_company_name'])) {
+				$company = Company::create([
+					'name' => $validated['new_company_name'], 
+					'url' => $validated['new_company_url']
+					]);
+				$offer->update(['company_id' => $company->id]);
+			}
 			return redirect("/offers/$offer->id");
     }
 

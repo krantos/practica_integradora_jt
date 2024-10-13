@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
   <div class="column col-6 col-mx-auto">
-    @include('offer.form', ['offer' => $offer, 'method' => 'POST', 'companies' => $companies])
+    @include('company.form', ['company' => $company, 'method' => 'POST'])
   </div>
 @endsection

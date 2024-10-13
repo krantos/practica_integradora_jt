@@ -8,21 +8,5 @@
 				{{ session('toast')['message'] }}
     </div>
 @endif
-  <div class="offers col-11 col-mx-auto">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Position</th>
-          <th>Company</th>
-          <th>Salary</th>
-          <th>Date Posted</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($offers as $offer)
-          @include('offer.offer', [$offer])
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+  @include('offer.table', ['offers' => $offers])
 @endsection
