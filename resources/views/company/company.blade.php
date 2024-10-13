@@ -8,6 +8,6 @@
     {{ $company->location ? $company->location->country : '-' }}
   </td>
   <td>
-    {{ $company->url ? $company->url : "-" }}
+    {{ $company->url ? $company->url : '-' }}
   </td>
 </tr>

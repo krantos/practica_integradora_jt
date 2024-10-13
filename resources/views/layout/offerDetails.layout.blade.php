@@ -15,7 +15,7 @@
   <main>
     <div class="container">
       <div class="columns">
-        
+
       </div>
     </div>
   </main>
