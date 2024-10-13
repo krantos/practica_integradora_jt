@@ -44,6 +44,7 @@
   <textarea class="form-input" rows="4" name="experience" placeholder="Required Experience: ">{{ $offer->experience }}</textarea>
 </div>
 <div class="form-group">
+<div class="divider"></div>
   <label for="company">Company:</label>
   <select class="form-select" name="company_id">
     <option value=""></option>
@@ -75,6 +76,7 @@
 </div>
 
 <div class="form-group">
+<div class="divider"></div>
   <label for="company">Platform:</label>
   <select class="form-select" name="platform_id">
     <option value=""></option>

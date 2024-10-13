@@ -6,5 +6,9 @@
       {{ session('toast')['message'] }}
     </div>
   @endif
-  @include('offer.table', ['offers' => $offers])
+	@if(blank($offers))
+			@include('offer.empty')
+		@else
+  		@include('offer.table', ['offers' => $offers])
+		@endif
 @endsection

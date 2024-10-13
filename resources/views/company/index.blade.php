@@ -6,6 +6,9 @@
       {{ session('toast')['message'] }}
     </div>
   @endif
+	@if(blank($companies))
+			@include('company.empty')
+		@else
   <div class="col-11 col-mx-auto">
     <h3>Companies</h3>
     <table class="table table-striped table-hover">
@@ -23,4 +26,5 @@
       </tbody>
     </table>
   </div>
+	@endif
 @endsection
