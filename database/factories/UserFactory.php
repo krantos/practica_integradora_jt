@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
-						'tenant_uuid' => Tenant::factory(),
+						'tenant_id' => Tenant::factory(),
         ];
     }
 

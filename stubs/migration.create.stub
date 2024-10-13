@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('offers_technologies', function (Blueprint $table) {
+        Schema::create('{{ table }}', function (Blueprint $table) {
             $table->id();
-						$table->foreignId('offer_id')->constrained()->onDelete('cascade');
-						$table->foreignId('technology_id')->constrained()->onDelete('cascade');
+						$table->unsignedBigInteger('tenant_id')->nullable()->index();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('offers_technologies');
+        Schema::dropIfExists('{{ table }}');
     }
 };

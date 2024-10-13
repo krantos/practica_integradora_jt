@@ -17,8 +17,6 @@
     <form method="POST" action='{{ url("/offers") }}'>    
 	@endif
   @csrf
-      <div class="column col-10 col-md-12 col-mx-auto">
-
         <div class="form-group">
           <label for="position" class="form-label">Position</label>
           <input class="form-input" type="text" name="position" placeholder="Software Engineer Backend"
@@ -32,12 +30,12 @@
         <div class="form-group">
           <label for="skills" class="form-label">Skills</label>
           <textarea class="form-input" rows="4" name="skills" placeholder="- Good communicator"
-            value="{{ $offer->skills }}"></textarea>
+            >{{ $offer->skills }}</textarea>
         </div>
         <div class="form-group">
           <label for="experience" class="form-label">Experience</label>
           <textarea class="form-input" rows="4" name="experience" placeholder="Required Experience: "
-            value="{{ $offer->experience }}"></textarea>
+            >{{ $offer->experience }}</textarea>
         </div>
         <div class="form-group">
           <label for="salary" class="form-label">Salary</label>
@@ -50,7 +48,13 @@
             value="{{ $offer->url }}">
         </div>
         <div class="form-group">
-          <input class="btn btn-primary btn-block" type=submit class="btn btn-primary btn-block" value="Save">
+					<div class="columns py-2">
+						<div class="column col-auto col-mr-auto my-1">
+							<a href='{{ url("/offers/$offer->id") }}'>Cancel</a>
+						</div>
+						<div class="column col-6">
+							<input class="btn btn-primary btn-block" type=submit class="btn btn-primary btn-block" value="Save">
+						</div>
+					</div>
         </div>
-      </div>
     </form>

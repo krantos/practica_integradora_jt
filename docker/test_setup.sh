@@ -9,7 +9,7 @@ echo "creating jobtracker sqlite db"
 touch ./tests/jobtracker.sqlite
 
 echo "Running migration"
-php artisan migrate --env=testing
+php artisan migrate:fresh --env=testing
 
 echo "Running tests"
 php artisan test --env=testing

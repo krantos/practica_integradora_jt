@@ -27,7 +27,7 @@ class OfferPostRequest extends FormRequest
 						'skills' => 'string|nullable',
 						'experience' => 'string|nullable',
 						'salary' => 'numeric|nullable',
-						'url' => 'url:https|http|nullable'
+						'url' => 'url:http,https|nullable'
         ];
     }
 }

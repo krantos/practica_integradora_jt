@@ -1,5 +1,5 @@
 @auth
-  <div class="dropdown">
+  <div class="dropdown dropdown-right">
     <a class="btn btn-link dropdown-toggle" tabindex="0">
       {{ Auth::user()->name }}
       <i class="icon icon-caret"></i>

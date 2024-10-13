@@ -35,7 +35,7 @@ return new class extends Migration
 					$table->unsignedBigInteger('tenant_id')->nullable()->index();
 				});
 
-				Schema::table('offers_technologies', function (Blueprint $table) {
+				Schema::table('offer_technology', function (Blueprint $table) {
 					$table->unsignedBigInteger('tenant_id')->nullable()->index();
 				});
     }

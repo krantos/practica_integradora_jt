@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offer extends Model
 {
-    use HasFactory, SoftDeletes, HasTimestamps;
+    use HasFactory, SoftDeletes, HasTimestamps, BelongsToTenant;
 
 		 /**
      * The attributes that are mass assignable.
@@ -26,7 +27,8 @@ class Offer extends Model
 			'skills',
 			'experience',
 			'salary',
-			'url'
+			'url',
+			'tenant_id'
 		];
 
 		public function location(): HasOne {
