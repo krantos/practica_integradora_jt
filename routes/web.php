@@ -6,6 +6,7 @@ use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\PlatformController;
 
 Route::get('/login', function() {
 	if(Auth::check()) 
@@ -25,6 +26,8 @@ Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth'
 Route::resource('/offers', OfferController::class)->middleware('auth');
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
+
+Route::resource('/platforms', PlatformController::class)->middleware('auth');
 
 Route::get('/', function () {
     return view('landing');

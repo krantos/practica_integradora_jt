@@ -52,7 +52,7 @@
         {{ $company->name }}</option>
     @endforeach
   </select>
-  <a onclick="addCompanyInputs()">New Company</a>
+  <a onclick="showInputs('company-inputs')">New Company</a>
   <div class="my-2" id="company-inputs" style="display: none;">
     <div class="divider mx-2"></div>
     <div class="columns">
@@ -60,7 +60,7 @@
         <h3>Company</h3>
       </div>
       <div class="column col text-right">
-        <a onclick="closeCompanyInputs()"> <i class="icon icon-cross" style="cursor: pointer;"></i> </a>
+        <a onclick="hideInputs('company-inputs')"> <i class="icon icon-cross" style="cursor: pointer;"></i> </a>
       </div>
     </div>
     <div class="form-group">
@@ -73,6 +73,38 @@
     </div>
   </div>
 </div>
+
+<div class="form-group">
+  <label for="company">Platform:</label>
+  <select class="form-select" name="platform_id">
+    <option value=""></option>
+    @foreach ($platforms as $platform)
+      <option value="{{ $platform->id }}" {{ $platform->id == $offer->platform_id ? 'selected' : '' }}>
+        {{ $platform->name }}</option>
+    @endforeach
+  </select>
+  <a onclick="showInputs('platform-inputs')">New Platform</a>
+  <div class="my-2" id="platform-inputs" style="display: none;">
+    <div class="divider mx-2"></div>
+    <div class="columns">
+      <div class="column col">
+        <h3>Platform</h3>
+      </div>
+      <div class="column col text-right">
+        <a onclick="hideInputs('platform-inputs')"> <i class="icon icon-cross" style="cursor: pointer;"></i> </a>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="new_platform_name" class="form-label">Name:</label>
+      <input class="form-input" type="text" name="new_platform_name">
+    </div>
+    <div class="form-group">
+      <label for="new_platform_url" class="form-label">url:</label>
+      <input class="form-input" type="url" name="new_platform_url">
+    </div>
+  </div>
+</div>
+
 <div class="form-group">
   <div class="columns py-2">
     <div class="column col-auto col-mr-auto my-1">
@@ -85,11 +117,11 @@
 </div>
 </form>
 <script>
-  function addCompanyInputs() {
-    document.getElementById('company-inputs').style.display = "block";
+  function showInputs(id) {
+    document.getElementById(id).style.display = "block";
   }
 
-  function closeCompanyInputs() {
-    document.getElementById('company-inputs').style.display = "none";
+  function hideInputs(id) {
+    document.getElementById(id).style.display = "none";
   }
 </script>

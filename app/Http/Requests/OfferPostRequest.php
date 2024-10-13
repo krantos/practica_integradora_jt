@@ -31,6 +31,10 @@ class OfferPostRequest extends FormRequest
 						'company_id' => 'string|nullable',
 						'new_company_name' => 'string|nullable',
 						'new_company_url' => 'url:http,https|nullable',
+						'platform_id' => 'string|nullable',
+						'new_platform_name' => 'string|nullable',
+						'new_platform_url' => 'url:http,https|nullable',
+
         ];
     }
 }

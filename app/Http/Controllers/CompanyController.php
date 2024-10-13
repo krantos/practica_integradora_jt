@@ -50,9 +50,16 @@ class CompanyController extends Controller
     }
 
 		public function destroy(string $id): RedirectResponse {
-			$company = $this->findCompany($id);
-			$company->delete();
-			return redirect('/companies');
+			try {
+				$company = $this->findCompany($id);
+				$company->delete();
+			} catch (\Throwable $th) {
+				return back()->withErrors([
+					'error' => $th->getMessage(),
+				]);
+			}
+			
+			return redirect('/companies')->with(['toast' => ['style' => 'success', 'message' => "Offer: $company->name Successfully Deleted!"]]);
 		}
 
 		protected function findCompany(string $id) {

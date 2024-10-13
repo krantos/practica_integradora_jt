@@ -29,6 +29,7 @@ class Offer extends Model
 			'salary',
 			'url',
 			'company_id',
+			'platform_id',
 			'tenant_id'
 		];
 

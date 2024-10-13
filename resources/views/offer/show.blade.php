@@ -59,4 +59,18 @@
       </p>
     </div>
   </div>
+
+  <div class="columns">
+    <div class="column col-6 col-mx-auto my-2">
+      <div class="divider mx-2"></div>
+      <label class="text-gray form-label">Platform</label>
+      <h3>{{ $offer->platform ? $offer->platform->name : '-' }}</h3>
+      <label class="text-gray form-label">url:</label>
+      <p>
+        <a href='{{ $offer->platform ? url("$offer->platform->url") : ""}}' target="_blank">
+          {{ $offer->platform ? $offer->platform->url : '-' }}
+        </a>
+      </p>
+    </div>
+  </div>
 @endsection

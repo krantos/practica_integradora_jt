@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OfferPostRequest;
 use App\Models\Company;
 use App\Models\Offer;
+use App\Models\Platform;
 use Illuminate\Http\RedirectResponse;
 
 class OfferController extends Controller
@@ -24,7 +25,12 @@ class OfferController extends Controller
     {
 				$offer = new Offer();
 				$companies = Company::all();
-        return view('offer.create', ['offer' => $offer, 'companies' => $companies]);
+				$platforms = Platform::all();
+        return view('offer.create', [
+					'offer' => $offer,
+					'companies' => $companies,
+					'platforms' => $platforms
+				]);
     }
 
     /**
@@ -35,6 +41,20 @@ class OfferController extends Controller
 			try {
 					$validated = $request->validated();
 					$offer = Offer::create($validated);
+					if(!blank($validated['new_company_name'])) {
+						$company = Company::create([
+							'name' => $validated['new_company_name'], 
+							'url' => $validated['new_company_url']
+							]);
+						$offer->update(['company_id' => $company->id]);
+					}
+					if(!blank($validated['new_platform_name'])) {
+						$platform = Platform::create([
+							'name' => $validated['new_platform_name'], 
+							'url' => $validated['new_platform_url']
+							]);
+						$offer->update(['platform_id' => $platform->id]);
+					}
 				} catch (\Throwable $th) {
 					return back()->withErrors([
 						'error' => $th->getMessage(),
@@ -59,7 +79,12 @@ class OfferController extends Controller
     {
 				$offer = $this->findOffer($id);
 				$companies = Company::all();
-				return view('offer.edit', ['offer' => $offer, 'companies' => $companies]);
+				$platforms = Platform::all();
+				return view('offer.edit', [
+					'offer' => $offer,
+					'companies' => $companies,
+					'platforms' => $platforms
+				]);
     }
 
     /**
@@ -76,6 +101,13 @@ class OfferController extends Controller
 					'url' => $validated['new_company_url']
 					]);
 				$offer->update(['company_id' => $company->id]);
+			}
+			if(!blank($validated['new_platform_name'])) {
+				$platform = Platform::create([
+					'name' => $validated['new_platform_name'], 
+					'url' => $validated['new_platform_url']
+					]);
+				$offer->update(['platform_id' => $platform->id]);
 			}
 			return redirect("/offers/$offer->id");
     }
