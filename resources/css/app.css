@@ -18,3 +18,7 @@
 .h-screen {
     height: 100vh;
 }
+
+.form-input {
+	position: inherit;
+}

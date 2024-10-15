@@ -46,19 +46,18 @@
 <div class="form-group">
 <div class="divider"></div>
   <label for="company">Company:</label>
-  <select class="form-select" name="company_id">
-    <option value=""></option>
-    @foreach ($companies as $company)
-      <option value="{{ $company->id }}" {{ $company->id == $offer->company_id ? 'selected' : '' }}>
-        {{ $company->name }}</option>
-    @endforeach
-  </select>
-  <a onclick="showInputs('company-inputs')">New Company</a>
+		<select class="form-select" name="company_id">
+			<option value=""></option>
+			@foreach ($companies as $company)
+				<option value="{{ $company->id }}" {{ $company->id == $offer->company_id ? 'selected' : '' }}>
+					{{ $company->name }}</option>
+			@endforeach
+		</select>
+		<a onclick="showInputs('company-inputs')">New Company</a>
   <div class="my-2" id="company-inputs" style="display: none;">
-    <div class="divider mx-2"></div>
     <div class="columns">
       <div class="column col">
-        <h3>Company</h3>
+        <h3>New Company</h3>
       </div>
       <div class="column col text-right">
         <a onclick="hideInputs('company-inputs')"> <i class="icon icon-cross" style="cursor: pointer;"></i> </a>
@@ -87,10 +86,9 @@
   </select>
   <a onclick="showInputs('platform-inputs')">New Platform</a>
   <div class="my-2" id="platform-inputs" style="display: none;">
-    <div class="divider mx-2"></div>
     <div class="columns">
       <div class="column col">
-        <h3>Platform</h3>
+        <h3>New Platform</h3>
       </div>
       <div class="column col text-right">
         <a onclick="hideInputs('platform-inputs')"> <i class="icon icon-cross" style="cursor: pointer;"></i> </a>
