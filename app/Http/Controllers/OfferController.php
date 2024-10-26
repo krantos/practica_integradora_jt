@@ -15,7 +15,9 @@ class OfferController extends Controller
    */
   public function index()
   {
-    return view('offer.index', ['offers' => Offer::all()]);
+    return view('offer.index', [
+      'offers' => Offer::orderBy('publication_date', 'desc')->get()
+    ]);
   }
 
   /**

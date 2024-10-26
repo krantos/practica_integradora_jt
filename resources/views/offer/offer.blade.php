@@ -5,7 +5,9 @@
 		</a>
 	</td>
   <td>
-    <span class="chip">{{ $offer->state ? $offer->state : '-'  }}</span>
+    @if($offer->state)
+    <span class="chip">{{ $offer->state }}</span>
+    @endif
   </td>
 	<td>
 		<a href='{{ $offer->company ? url("companies/$offer->company_id") : "" }}'>
