@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PlatformController;
 
@@ -28,6 +29,8 @@ Route::resource('/companies', CompanyController::class)->middleware('auth');
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
 
 Route::resource('/platforms', PlatformController::class)->middleware('auth');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/', function () {
     return view('landing');

@@ -1,7 +1,7 @@
 <header style="position: sticky; top: 0; background-color: white; z-index: 10;">
 	<div class="navbar hide-md" style="background-color: white; border-bottom: 1px solid lightgrey; margin-bottom: 10px;">
 		<section class="navbar-section m-2">
-			<a href="" class="btn btn-link mr-2">Dashboard</a>
+			<a href="{{ url('dashboard') }}" class="btn btn-link mr-2">Dashboard</a>
 			<a href="{{ url('offers') }}" class="btn btn-link">Ofertas</a>
 			<a href="{{ url('companies') }}" class="btn btn-link">Companies</a>
 			<a href="{{ url('platforms') }}" class="btn btn-link">Platforms</a>
@@ -33,7 +33,7 @@
 		<a class="mx-2" onclick="toggleNavSide()"><i class="icon icon-menu"></i></a>
 		<div id="navside" class="p-absolute inactive">
 			<ul class="nav">
-				<li class="nav-item"><a href="" class="btn btn-link mr-2">Dashboard</a></li>
+				<li class="nav-item"><a href="{{ url('dashboard') }}" class="btn btn-link mr-2">Dashboard</a></li>
 				<li class="nav-item"><a href="{{ url('offers') }}" class="btn btn-link">Ofertas</a></li>
 				<li class="nav-item"><a href="{{ url('companies') }}" class="btn btn-link">Companies</a></li>
 				<li class="nav-item"><a href="{{ url('platforms') }}" class="btn btn-link">Platforms</a></li>
