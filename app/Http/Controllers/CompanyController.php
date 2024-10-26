@@ -63,6 +63,6 @@ class CompanyController extends Controller
 		}
 
 		protected function findCompany(string $id) {
-			return Company::find($id);
+			return Company::findOrFail($id);
 		}
 }

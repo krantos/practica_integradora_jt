@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\OfferState;
 use App\Models\Company;
 use App\Models\Currency;
 use App\Models\Location;
@@ -31,10 +32,8 @@ class OfferFactory extends Factory
 					'publication_date' => fake()->date(),
 					'priority' => fake()->word(),
 					'currency_id' => Currency::factory(),
-					// 'location_id' => Location::factory(),
-					// 'company_id' => Company::factory(),
-					// 'platform_id' => Platform::factory(),
           'tenant_id' => Tenant::factory(),
+          'state' => fake()->randomElement(OfferState::values())
         ];
     }
 }
