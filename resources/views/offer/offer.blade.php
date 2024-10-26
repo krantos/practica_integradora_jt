@@ -4,6 +4,9 @@
 			{{ $offer->position }}
 		</a>
 	</td>
+  <td>
+    <span class="chip">{{ $offer->state ? $offer->state : '-'  }}</span>
+  </td>
 	<td>
 		<a href='{{ $offer->company ? url("companies/$offer->company_id") : "" }}'>
 			{{ $offer->company ? $offer->company->name : '-' }}

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OfferState;
 use App\Traits\BelongsToTenant;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,11 +28,16 @@ class Offer extends Model
 			'skills',
 			'experience',
 			'salary',
+      'state',
 			'url',
 			'company_id',
 			'platform_id',
 			'tenant_id'
 		];
+
+    protected $casts = [
+      'state' => OfferState::class,
+    ];
 
 		public function location(): HasOne {
 			return $this->hasOne(Location::class);
@@ -56,4 +62,6 @@ class Offer extends Model
 		public function technologies(): BelongsToMany {
 			return $this->belongsToMany(Technology::class);
 		}
+
+
 }

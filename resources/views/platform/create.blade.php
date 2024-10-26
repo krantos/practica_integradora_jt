@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
-  <div class="column col-6 col-mx-auto">
+  <div class="column col-6 col-sm-11 col-mx-auto">
     @include('platform.form', ['platform' => $platform, 'method' => 'POST'])
   </div>
 @endsection

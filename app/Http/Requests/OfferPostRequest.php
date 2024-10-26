@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\OfferState;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class OfferPostRequest extends FormRequest
 {
@@ -34,7 +36,7 @@ class OfferPostRequest extends FormRequest
 						'platform_id' => 'string|nullable',
 						'new_platform_name' => 'string|nullable',
 						'new_platform_url' => 'url:http,https|nullable',
-
+            'state' => ['required', Rule::in(array_column(OfferState::cases(), 'value'))]
         ];
     }
 }

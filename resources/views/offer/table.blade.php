@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Position</th>
+        <th>State</th>
         <th>Company</th>
         <th>Salary</th>
         <th>Date Posted</th>

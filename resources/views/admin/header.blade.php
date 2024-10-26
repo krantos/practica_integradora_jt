@@ -1,5 +1,5 @@
 <header style="position: sticky; top: 0; background-color: white; z-index: 10;">
-	<div class="navbar hide-sm" style="background-color: white; border-bottom: 1px solid lightgrey; margin-bottom: 10px;">
+	<div class="navbar hide-md" style="background-color: white; border-bottom: 1px solid lightgrey; margin-bottom: 10px;">
 		<section class="navbar-section m-2">
 			<a href="" class="btn btn-link mr-2">Dashboard</a>
 			<a href="{{ url('offers') }}" class="btn btn-link">Ofertas</a>
@@ -29,7 +29,7 @@
 		<div class="divider"></div>
 	</div>
 
-	<div class="show-sm" style="padding-top: 10px; padding-bottom: 10px">
+	<div class="show-md" style="padding-top: 10px; padding-bottom: 10px">
 		<a class="mx-2" onclick="toggleNavSide()"><i class="icon icon-menu"></i></a>
 		<div id="navside" class="p-absolute inactive">
 			<ul class="nav">
