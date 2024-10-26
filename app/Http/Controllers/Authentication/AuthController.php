@@ -19,7 +19,7 @@ class AuthController extends Controller {
 
 		if (Auth::attempt($cred)) {
 			$req->session()->regenerate();
-			return redirect()->intended('profile');
+			return redirect()->intended('dashboard');
 		}
 
 		return back()->withErrors([

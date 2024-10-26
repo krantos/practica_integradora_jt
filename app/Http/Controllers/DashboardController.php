@@ -19,7 +19,15 @@ class DashboardController extends Controller
    */
   public function index()
   {
-    return view('dashboard.index', ['offersByState' => $this->dashboard->offersByState()]);
+    $offersByState = $this->dashboard->offersByState();
+    $countOffersByCompany = $this->dashboard->countOffersByCompany();
+    $top5Salary = $this->dashboard->top5Salary();
+
+    return view('dashboard.index', [
+      'offersByState' => $offersByState,
+      'countByCompany' => $countOffersByCompany,
+      'top5Salary' => $top5Salary
+    ]);
   }
 
   /**
