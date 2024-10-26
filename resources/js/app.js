@@ -1,2 +1,4 @@
 import "./bootstrap";
-import "./jquery-3.7.1.slim.min.js"
+import "./custom.js";
+import jQuery from 'jquery';
+window.$ = jQuery;

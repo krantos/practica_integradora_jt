@@ -121,7 +121,7 @@
           <a href='{{ url("/offers/$offer->id") }}'>Cancel</a>
         </div>
         <div class="column col-6">
-          <input class="btn btn-primary btn-block" type=submit class="btn btn-primary btn-block" value="Save">
+          <input class="btn btn-primary btn-block" type=submit value="Save">
         </div>
       </div>
     </div>

@@ -14,8 +14,7 @@
 						<h2 class="">$ {{ $offer->salary }}</h2>
 					</div>
           <div class="column col-2 col-sm-12">
-						<label class="text-gray form-label">State:</label>
-						<span class="chip">{{ $offer->state }}</span>
+						@include('offer.state', ['state' => $offer->state ])
 					</div>
 				</div>
 				<div class="columns">
