@@ -7,10 +7,14 @@ export default defineConfig({
             input: [
               "resources/css/app.css", 
               "resources/js/app.js",
+              "resources/summernote/summernote-lite.min.css",
             ],
             refresh: true,
         }),
     ],
+    build: {
+      sourcemap: true,
+    },
     server: {
         host: true,
     },

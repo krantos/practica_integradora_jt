@@ -5,9 +5,30 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-D4sAj8cR.js",
+    "file": "assets/app-z-Rg4TxU.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/summernote/font/summernote.eot": {
+    "file": "assets/summernote-jt9apK1s.eot",
+    "src": "resources/summernote/font/summernote.eot"
+  },
+  "resources/summernote/font/summernote.ttf": {
+    "file": "assets/summernote-BDPkqvsB.ttf",
+    "src": "resources/summernote/font/summernote.ttf"
+  },
+  "resources/summernote/font/summernote.woff": {
+    "file": "assets/summernote-MGhHcnpK.woff",
+    "src": "resources/summernote/font/summernote.woff"
+  },
+  "resources/summernote/font/summernote.woff2": {
+    "file": "assets/summernote-tk6LuLER.woff2",
+    "src": "resources/summernote/font/summernote.woff2"
+  },
+  "resources/summernote/summernote-lite.min.css": {
+    "file": "assets/summernote-lite-m_-wNbxv.css",
+    "src": "resources/summernote/summernote-lite.min.css",
     "isEntry": true
   }
 }

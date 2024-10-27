@@ -45,11 +45,11 @@
     </div>
     <div class="form-group">
       <label for="skills" class="form-label">Skills</label>
-      <textarea class="form-input" rows="4" name="skills" placeholder="- Good communicator">{{ $offer->skills }}</textarea>
+      <textarea id="skillsEditor" name="skills">{{ $offer->skills }}</textarea>
     </div>
     <div class="form-group">
       <label for="experience" class="form-label">Experience</label>
-      <textarea class="form-input" rows="4" name="experience" placeholder="Required Experience: ">{{ $offer->experience }}</textarea>
+      <textarea id="experienceEditor" name="experience">{{ $offer->experience }}</textarea>
     </div>
     <div class="form-group">
       <div class="divider"></div>
@@ -127,6 +127,18 @@
     </div>
   </form>
   <script>
+    
+    $('#skillsEditor').summernote({
+      height: 300,
+      tabsize: 2
+    });
+
+    $('#experienceEditor').summernote({
+      height: 300,
+      tabsize: 2,
+      placeholder: 'Experience expected'
+    });
+
     function showInputs(id) {
       document.getElementById(id).style.display = "block";
     }

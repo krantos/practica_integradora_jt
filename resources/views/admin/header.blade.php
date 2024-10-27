@@ -31,7 +31,7 @@
 
 	<div class="show-md" style="padding-top: 10px; padding-bottom: 10px">
 		<a class="mx-2" onclick="toggleNavSide()"><i class="icon icon-menu"></i></a>
-		<div id="navside" class="p-absolute inactive">
+		<div id="navside" class="p-absolute inactiveMobileNav">
 			<ul class="nav">
 				<li class="nav-item"><a href="{{ url('dashboard') }}" class="btn btn-link mr-2">Dashboard</a></li>
 				<li class="nav-item"><a href="{{ url('offers') }}" class="btn btn-link">Ofertas</a></li>
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	<style>
-		.active {
+		.activeMobileNav {
 			left: 0px;
 			background-color: white;
 			width: 100vw;
@@ -82,19 +82,19 @@
 			z-index: 100
 		}
 
-		.inactive {
+		.inactiveMobileNav {
 			left: -1000px;
 		}
 	</style>
 	<script>
 		function toggleNavSide() {
 			const navSide = document.getElementById('navside');
-			if (navSide.classList.contains('active')) {
-				navSide.classList.remove('active');
-				navSide.classList.add('inactive');
+			if (navSide.classList.contains('activeMobileNav')) {
+				navSide.classList.remove('activeMobileNav');
+				navSide.classList.add('inactiveMobileNav');
 			} else {
-				navSide.classList.remove('inactive');
-				navSide.classList.add('active');
+				navSide.classList.remove('inactiveMobileNav');
+				navSide.classList.add('activeMobileNav');
 			}
 		}
 	</script>

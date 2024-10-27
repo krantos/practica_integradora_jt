@@ -28,11 +28,11 @@
 					</div>
 					<div class="column col-6 col-sm-12">
 						<label class="text-gray form-label">Skills:</label>
-						<p>{{ $offer->skills }}</p>
+						<p>{!! $offer->skills !!}</p>
 					</div>
 					<div class="column col-6 col-sm-12">
 						<label class="text-gray form-label">Experience:</label>
-						<p>{{ $offer->experience }}</p>
+						<p>{!! $offer->experience !!}</p>
 					</div>
 				</div>
 			</div>
