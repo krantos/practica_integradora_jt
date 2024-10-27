@@ -3,33 +3,10 @@
 <div class="columns">
   <div class="col-10 col-sm-11 col-mx-auto my-2">
     <div class="columns">
-      <div class="column col-12" >
+      <div class="column">
         <div class="columns bg-gray" style="min-height: 120px;">
           <div class="column col-1 flex-centered ">
-          <div class="dropdown">
-          <a class="btn dropdown-toggle" tabindex="0">
-            <i class="icon icon-more-vert"></i>
-          </a>
-          <ul class="menu text-left">
-            <li class="menu-item">
-              <a href='{{ url("offers/$offer->id/edit") }}'>Edit</a>
-            </li>
-            <form action="/offers/{{ $offer->id }}" method="post" id="form__submit">
-              @method('DELETE')
-              <li class="menu-item">
-                <a href='#' onclick="submitForm()">Delete</a>
-              </li>
-              <script>
-                function submitForm() {
-                  if (window.confirm('Do you really want to delete this offer?')) {
-                    document.getElementById('form__submit').submit();
-                  }
-                }
-              </script>
-              @csrf
-            </form>
-          </ul>
-        </div>
+            @include('offer.EditOptions', ['offer' => $offer])
           </div>
           <div class="column col-5 col-sm-12">
             <label class="form-label">Position:
@@ -63,9 +40,6 @@
             <p>{!! $offer->experience !!}</p>
           </div>
         </div>
-      </div>
-      <div class="column text-right col-ml-auto col-sm-1">
-        
       </div>
     </div>
     <div class="columns">
