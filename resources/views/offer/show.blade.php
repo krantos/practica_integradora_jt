@@ -24,7 +24,7 @@
 					</div>
 					<div class="colum col-6 col-sm-12">
 						<label class="text-gray form-label">url:</label>
-						<p><a href="{{ $offer->url }}" target="_blanck">{{ $offer->url }}</a></p>
+						<p><a href="{{ $offer->url }}" target="_blanck">Link</a></p>
 					</div>
 					<div class="column col-6 col-sm-12">
 						<label class="text-gray form-label">Skills:</label>

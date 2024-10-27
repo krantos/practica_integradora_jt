@@ -17,39 +17,47 @@
     @endif
     @csrf
     <div class="form-group">
-      <label for="position" class="form-label">Position</label>
-      <input class="form-input" type="text" name="position" placeholder="Software Engineer Backend"
-        value="{{ $offer->position }}">
+      <label for="position" class="form-label">Position
+        <input class="form-input" type="text" name="position" placeholder="Software Engineer Backend"
+          value="{{ $offer->position }}">
+      </label>
     </div>
     <div class="form-group">
-      <label for="state">State</label>
-      <select class="form-select" name="state" id="state">
-        @foreach(\App\Enums\OfferState::cases() as $state)
+      <label for="state">State
+        <select class="form-select" name="state" id="state">
+          @foreach(\App\Enums\OfferState::cases() as $state)
           <option value="{{ $state->value }}" @selected($state->name == $offer->state)>{{ $state->value }}</option>
-        @endforeach
-      </select>
+          @endforeach
+        </select>
+      </label>
     </div>
     <div class="form-group">
-      <label for="salary" class="form-label">Salary</label>
-      <input class="form-input" type="number" name="salary" placeholder="85000" value="{{ $offer->salary }}">
+      <label for="salary" class="form-label">Salary
+        <input class="form-input" type="number" min="0.00" name="salary" placeholder="85000" value="{{ $offer->salary }}">
+      </label>
     </div>
     <div class="form-group">
-      <label for="publication_date" class="form-label">Publication Date</label>
-      <input class="form-input" type="date" name="publication_date" placeholder="https://jobdescription.com/"
-        value="{{ $offer->publication_date }}">
+      <label for="publication_date" class="form-label">Publication Date
+        <input class="form-input" type="date" name="publication_date" placeholder="https://jobdescription.com/"
+          value="{{ $offer->publication_date }}">
+      </label>
     </div>
     <div class="form-group">
-      <label for="url" class="form-label">url</label>
-      <input class="form-input" type="url" name="url" placeholder="https://jobdescription.com/"
-        value="{{ $offer->url }}">
+      <label for="url" class="form-label">url
+        <input class="form-input" type="url" name="url" placeholder="https://jobdescription.com/"
+          value="{{ $offer->url }}">
+      </label>
     </div>
     <div class="form-group">
-      <label for="skills" class="form-label">Skills</label>
-      <textarea id="skillsEditor" name="skills">{{ $offer->skills }}</textarea>
+      <label for="skills" class="form-label">Skills
+        <textarea id="skillsEditor" name="skills">{{ $offer->skills }}</textarea>
+      </label>
     </div>
+
     <div class="form-group">
-      <label for="experience" class="form-label">Experience</label>
-      <textarea id="experienceEditor" name="experience">{{ $offer->experience }}</textarea>
+      <label for="experience" class="form-label">Experience
+        <textarea id="experienceEditor" name="experience">{{ $offer->experience }}</textarea>
+      </label>
     </div>
     <div class="form-group">
       <div class="divider"></div>
@@ -127,16 +135,28 @@
     </div>
   </form>
   <script>
-    
     $('#skillsEditor').summernote({
       height: 300,
-      tabsize: 2
+      tabsize: 2,
+      placeholder: 'Skills required',
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['view', ['codeview']],
+      ]
     });
 
     $('#experienceEditor').summernote({
       height: 300,
       tabsize: 2,
-      placeholder: 'Experience expected'
+      placeholder: 'Experience expected',
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['view', ['codeview']],
+      ]
     });
 
     function showInputs(id) {

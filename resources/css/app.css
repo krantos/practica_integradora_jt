@@ -22,3 +22,10 @@
 .form-input {
 	position: inherit;
 }
+
+.crop-with-ellipsis {
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow:ellipsis; 
+  width:250px; 
+}

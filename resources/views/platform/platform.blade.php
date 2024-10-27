@@ -5,6 +5,9 @@
     </a>
   </td>
   <td>
-    {{ $platform->url ? $platform->url : '-' }}
+    <div class="crop-with-ellipsis">
+      <a href="{{ $platform->url ? $platform->url : '#' }}">{{ $platform->url ? $platform->url : '-' }}</a>
+      
+    </div>
   </td>
 </tr>

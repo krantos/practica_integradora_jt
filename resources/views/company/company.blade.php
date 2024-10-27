@@ -8,6 +8,8 @@
     {{ $company->location ? $company->location->country : '-' }}
   </td>
   <td>
-    {{ $company->url ? $company->url : '-' }}
+    <div class="crop-with-ellipsis">
+      <a href="{{  $company->url ? $company->url : '#' }}" target="_blank">{{  $company->url ? $company->url : '-' }}</a>
+    </div>
   </td>
 </tr>

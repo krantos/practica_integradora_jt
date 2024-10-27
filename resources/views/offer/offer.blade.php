@@ -1,8 +1,10 @@
 <tr>
 	<td>
-		<a href='{{ url("offers/$offer->id") }}'>
-			{{ $offer->position }}
-		</a>
+    <div class="crop-with-ellipsis">
+      <a href='{{ url("offers/$offer->id") }}'>
+        {{ $offer->position }}
+      </a>
+    </div>
 	</td>
   <td>
     @if($offer->state)

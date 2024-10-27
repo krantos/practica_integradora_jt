@@ -14,9 +14,11 @@
         @foreach($top5Salary as $offer)
         <tr>
           <td>
-            <a href='{{ url("offers/$offer->id") }}'>
-              {{ $offer->position }}
-            </a>
+            <div class="crop-with-ellipsis">
+              <a href='{{ url("offers/$offer->id") }}'>
+                {{ $offer->position }}
+              </a>
+            </div>
           </td>
           <td>$ {{ $offer->salary }}</td>
         </tr>
