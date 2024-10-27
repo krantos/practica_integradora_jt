@@ -24,6 +24,7 @@ class Dashboard extends Model
   public function offersByState() {
     return DB::table('offers')->selectRaw('state, count(state) as total')
       ->where('tenant_id', session()->get('tenant_id'))
+      ->whereNull('offers.deleted_at')
       ->groupBy('state')
       ->orderBy('total', 'desc')
       ->limit(5)

@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Offer;
 use App\Models\Platform;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
@@ -137,6 +138,17 @@ class OfferController extends Controller
       ]);
     }
     return redirect('/offers')->with(['toast' => ['style' => 'success', 'message' => "Offer: $offer->position Successfully Deleted!"]]);
+  }
+
+  public function updateState(Request $request, string $id): RedirectResponse {
+    try {
+      $offer = $this->findOffer($id);
+      $newState = $request->input('state');
+      $offer->update(['state' => $newState]);
+    } catch (\Throwable $th) {
+      throw $th;
+    }
+    return back();
   }
 
   protected function findOffer(string $id)

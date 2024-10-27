@@ -1,22 +1,37 @@
 <div class="current">
-  <div id="status">
-    <label class="text-gray form-label">State:</label>
-    <span class="chip">{{ $offer->state }}</span>
+  <div id="status" onclick="statusHide()">
+    <label style="cursor: pointer;" class="form-label">State:
+      <p>
+        <span class="chip">{{ $offer->state }}</span>
+      </p>
+    </label>
   </div>
   <div class="form-group" id="statusForm" style="display: none;">
-    <form action="/offers/{{ $offer->id }}/state" method="post" id="form__submit">
+    <form action="/offers/{{ $offer->id }}/state" method="post" id="form__newState">
       @method('PUT')
       @csrf
-      <label class="text-gray form-label">State:
-      <select class="form-select" name="state" id="state">
-        @foreach(\App\Enums\OfferState::cases() as $state)
-          <option value="{{ $state->value }}" @selected($state->name == $offer->state)>{{ $state->value }}</option>
-        @endforeach
-      </select>
+      <label class="form-label">State:
+        <select class="form-select" name="state" id="new-state">
+          @foreach(\App\Enums\OfferState::cases() as $state)
+          <option value="{{ $state->value }}" @selected($offer->state == $state->value)>{{ $state->value }}</option>
+          @endforeach
+        </select>
       </label>
-      <input class="btn" type=submit value="&#10004;">
-      <button class="btn">&#x274c;</button>
+      <a onclick="statusInputHide()" style="cursor: pointer;">cancel</a>
     </form>
   </div>
 </div>
+<script>
+  function statusHide() {
+    $('#status').toggle();
+    $('#statusForm').toggle();
+  }
+  function statusInputHide() {
+    $('#statusForm').toggle();
+    $('#status').toggle();
+  }
 
+  $('#new-state').on('change', function() {
+    $('#form__newState').submit();
+  })
+</script>

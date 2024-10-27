@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PlatformPostRequest;
 use App\Models\Platform;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class PlatformController extends Controller
 {

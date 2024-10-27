@@ -25,12 +25,16 @@ Route::get('/clean', function() {
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('auth');
 
 Route::resource('/offers', OfferController::class)->middleware('auth');
+
+
 Route::resource('/companies', CompanyController::class)->middleware('auth');
+Route::put('/offers/{id}/state', [OfferController::class, 'updateState'])->middleware('auth');
+
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
 
 Route::resource('/platforms', PlatformController::class)->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::get('/', function () {
     return view('landing');
