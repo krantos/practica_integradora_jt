@@ -30,7 +30,9 @@ Route::resource('/offers', OfferController::class)->middleware('auth');
 
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 Route::put('/offers/{id}/state', [OfferController::class, 'updateState'])->middleware('auth');
-Route::post('/offers/{id}/interviews', [InterviewController::class, 'store'])->middleware('auth');
+Route::post('/offers/{offerId}/interviews', [InterviewController::class, 'store'])->middleware('auth');
+Route::put('/offers/{offerId}/interviews/{id}', [InterviewController::class, 'update'])->middleware('auth');
+Route::delete('/offers/{offerId}/interviews/{id}', [InterviewController::class, 'destroy'])->middleware('auth');
 
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
 

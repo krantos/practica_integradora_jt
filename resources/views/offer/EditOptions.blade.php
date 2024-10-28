@@ -6,15 +6,15 @@
     <li class="menu-item">
       <a href='{{ url("offers/$offer->id/edit") }}'>Edit</a>
     </li>
-    <form action="/offers/{{ $offer->id }}" method="post" id="form__submit">
+    <form action="/offers/{{ $offer->id }}" method="post" id="offer__delete">
       @method('DELETE')
       <li class="menu-item">
-        <a href='#' onclick="submitForm()">Delete</a>
+        <a href='#' onclick="deleteOffer()">Delete</a>
       </li>
       <script>
-        function submitForm() {
+        function deleteOffer() {
           if (window.confirm('Do you really want to delete this offer?')) {
-            document.getElementById('form__submit').submit();
+            document.getElementById('offer__delete').submit();
           }
         }
       </script>
