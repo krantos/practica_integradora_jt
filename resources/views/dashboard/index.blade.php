@@ -3,6 +3,14 @@
 <div class="columns">
   <div class="col-10 col-mx-auto">
     <div class="columns">
+      <h3>Next Interviews</h3>
+    </div>
+    <div class="columns">
+      <div class="column">
+        @include('dashboard.incomingInterviews', ['incomingInterviews' => $incomingInterviews])
+      </div>
+    </div>
+    <div class="columns my-2">
       <h3>Offers</h3>
     </div>
     <div class="columns">

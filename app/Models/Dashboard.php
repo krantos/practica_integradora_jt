@@ -54,4 +54,16 @@ class Dashboard extends Model
       ->limit(5)
       ->get();
   }
+
+  public function getIncomingInterviews() {
+    return DB::table('interviews')
+      ->select('interviews.date_time', 'offers.position', 'offers.id')
+      ->join('offers', 'interviews.offer_id', '=', 'offers.id')
+      ->whereNull('offers.deleted_at')
+      ->where('offers.tenant_id', session()->get('tenant_id'))
+      ->whereNull('interviews.deleted_at')
+      ->orderBy('interviews.date_time', 'asc')
+      ->limit(10)
+      ->get();
+  }
 }

@@ -22,11 +22,13 @@ class DashboardController extends Controller
     $offersByState = $this->dashboard->offersByState();
     $countOffersByCompany = $this->dashboard->countOffersByCompany();
     $top5Salary = $this->dashboard->top5Salary();
+    $incomingInterviews = $this->dashboard->getIncomingInterviews();
 
     return view('dashboard.index', [
       'offersByState' => $offersByState,
       'countByCompany' => $countOffersByCompany,
-      'top5Salary' => $top5Salary
+      'top5Salary' => $top5Salary,
+      'incomingInterviews' => $incomingInterviews,
     ]);
   }
 
