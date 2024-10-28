@@ -33,12 +33,13 @@ Route::put('/offers/{id}/state', [OfferController::class, 'updateState'])->middl
 Route::post('/offers/{offerId}/interviews', [InterviewController::class, 'store'])->middleware('auth');
 Route::put('/offers/{offerId}/interviews/{id}', [InterviewController::class, 'update'])->middleware('auth');
 Route::delete('/offers/{offerId}/interviews/{id}', [InterviewController::class, 'destroy'])->middleware('auth');
-
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
 
 Route::resource('/platforms', PlatformController::class)->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::put('/profile', [ProfileController::class, 'update'])->middleware('auth');
 
 Route::get('/', function () {
     return view('landing');
