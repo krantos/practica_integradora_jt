@@ -11,6 +11,12 @@ class Interview extends Model
 {
     use HasFactory, BelongsToTenant;
 
+    protected $fillable = [
+      'call_details',
+      'date_time',
+      'offer_id'
+    ];
+
 		public function offer() : BelongsTo {
 			return $this->belongsTo(Offer::class);
 		}

@@ -6,6 +6,7 @@ use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PlatformController;
 
@@ -29,6 +30,7 @@ Route::resource('/offers', OfferController::class)->middleware('auth');
 
 Route::resource('/companies', CompanyController::class)->middleware('auth');
 Route::put('/offers/{id}/state', [OfferController::class, 'updateState'])->middleware('auth');
+Route::post('/offers/{id}/interviews', [InterviewController::class, 'store'])->middleware('auth');
 
 Route::delete('/offers/{id}/unlink', [OfferController::class, 'unlikeCompany']);
 

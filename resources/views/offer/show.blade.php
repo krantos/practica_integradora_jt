@@ -22,6 +22,9 @@
             @include('offer.state', ['state' => $offer->state ])
           </div>
         </div>
+        <div class="column">
+          @include('offer.interview', ['offer' => $offer, 'interviews' => $interviews])
+        </div>
         <div class="columns">
           <div class="column col-6 col-sm-12">
             <label class="text-gray form-label">Publication Date:</label>

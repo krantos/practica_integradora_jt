@@ -67,7 +67,9 @@ class OfferController extends Controller
    */
   public function show(string $id)
   {
-    return view('offer.show', ['offer' => $this->findOffer($id)]);
+    $offer = Offer::findOrFail($id);
+    $interviews = $offer->interviews;
+    return view('offer.show', ['offer' => $offer, 'interviews' => $interviews]);
   }
 
   /**

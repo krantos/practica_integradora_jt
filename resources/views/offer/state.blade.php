@@ -26,6 +26,7 @@
     $('#status').toggle();
     $('#statusForm').toggle();
   }
+
   function statusInputHide() {
     $('#statusForm').toggle();
     $('#status').toggle();
